@@ -1,0 +1,80 @@
+POST http://localhost:8000/create-account
+Content-Type: application/json
+
+{
+  "fullName": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+####
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+####
+POST http://localhost:8000/add-note
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NjAwODc1LCJleHAiOjE3MTc3NjA4NzV9.i7JLY3HKrTp4GUopI48rxWnHcMutEmc1U0YlofkrF7w
+
+{
+  "title": "Your Note Title",
+  "content": "Your Note Content",
+  "tags": ["tag1", "tag2"]
+}
+####
+PUT http://localhost:8000/edit-note/6641e02490a1247cb188af0b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+  "title": "Updated Note Title",
+  "content": "Updated Note Content",
+  "tags": ["updated_tag1", "updated_tag2"],
+  "isPinned": true
+}
+
+####
+GET http://localhost:8000/get-all-notes/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+}
+
+####
+DELETE  http://localhost:8000/delete-note/6641e41fd72901049668dd6a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+}
+
+####
+PUT http://localhost:8000/update-note-pinned/6644b7bb7d03583a81cb1f49
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+  "isPinned": false
+}
+
+
+####
+PUT http://localhost:8000/get-user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+}
+
+####
+GET http://localhost:8000/search-notes/?query=gym
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDFiM2ZmYmFjN2E2NmIxMDU1MjZlMyIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InBhc3N3b3JkMTIzIiwiY3JlYXRlZE9uIjoiMjAyNC0wNS0xM1QwNjoyOToxMS43NjdaIiwiX192IjowfSwiaWF0IjoxNzE1NTkzMDk1LCJleHAiOjE3MTc3NTMwOTV9.Qw3_wot80ThT2TwWBW4GrpJUiyTckXUioUbNFk4-gY4
+
+{
+}
